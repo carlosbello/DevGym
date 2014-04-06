@@ -1,0 +1,33 @@
+[
+    {
+        "category": "Secuenciales",
+        "description": "Problemas relativamente simples cuya solución es básicamente secuencial.",
+        "exercieses": []
+    },
+    {
+        "category": "Alternativos",
+        "description": "Problemas que no pueden ser resueltos de manera exclusivamente secuencial pues tendrán distintas soluciones, según los datos de entrada.",
+        "exercieses": []
+    },
+    {
+        "category": "Iterativos",
+        "description": "Problemas que requieren recorrer listas de elementos para procesar todos o parte de los elementos de la misma.",
+        "exercieses": [
+            {
+                "title": "Todo a mayúsculas",
+                "id": "inter_all-to-uppercase-1",
+                "complexity": 1
+            },
+            {
+                "title": "Último índice",
+                "id": "inter_last-index-1",
+                "complexity": 2.5
+            },
+            {
+                "title": "Buscar en la lista",
+                "id": "inter_index-1",
+                "complexity": 2
+            }
+        ]
+    }
+]
