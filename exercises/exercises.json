@@ -19,7 +19,7 @@
                 "complexity": 1
             },
             {
-                "title": "Último índice",
+                "title": "Última aparición",
                 "id": "inter_last-index-1",
                 "complexity": 2.5
             },
@@ -27,6 +27,26 @@
                 "title": "Buscar en la lista",
                 "id": "inter_index-1",
                 "complexity": 2
+            },
+            {
+                "title": "¿Cuántos hay?",
+                "id": "inter_count-1",
+                "complexity": 2.5
+            },
+            {
+                "title": "¿Cuántos hay, en total?",
+                "id": "inter_count_total-1",
+                "complexity": 5
+            },
+            {
+                "title": "¿Cuántos hay, de cada uno? (I)",
+                "id": "inter_count_each-1",
+                "complexity": 7
+            },
+            {
+                "title": "¿Cuántos hay, de cada uno? (II)",
+                "id": "inter_count_each-2",
+                "complexity": 9
             }
         ]
     }
