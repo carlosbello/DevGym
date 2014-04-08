@@ -13,10 +13,10 @@ function DevGym() {
         })[0]);
         that.currentExcercises.removeAll();
         $.each(that.currentCategory().exercieses.sort(function (e1, e2) { return e1.complexity > e2.complexity }),
-            function (index, item) {
-                that.currentExcercises.push($.extend(item, { content: ""}));
+            function (index, item) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                that.currentExcercises.push($.extend(item, { content: ko.observable()}));
                 $.get('exercises/' + item.id + '.html', function (result) {
-                    that.currentExcercises.replace(item, $.extend(item, {content: result}));
+                    that.currentExcercises()[index].content(result);
                 });
             });
     };
