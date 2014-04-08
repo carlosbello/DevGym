@@ -14,8 +14,9 @@ function DevGym() {
         that.currentExcercises.removeAll();
         $.each(that.currentCategory().exercieses.sort(function (e1, e2) { return e1.complexity > e2.complexity }),
             function (index, item) {
+                that.currentExcercises.push($.extend(item, { content: ""}));
                 $.get('exercises/' + item.id + '.html', function (result) {
-                    that.currentExcercises.push($.extend(item, {content: result}));
+                    that.currentExcercises.replace(item, $.extend(item, {content: result}));
                 });
             });
     };

@@ -19,13 +19,13 @@
                 "complexity": 1
             },
             {
-                "title": "Última aparición",
-                "id": "inter_last-index-1",
+                "title": "Buscar en la lista, última aparición",
+                "id": "inter_find-last-1",
                 "complexity": 2.5
             },
             {
-                "title": "Buscar en la lista",
-                "id": "inter_index-1",
+                "title": "Buscar en la lista, primera aparición",
+                "id": "inter_find-first-1",
                 "complexity": 2
             },
             {
@@ -47,6 +47,11 @@
                 "title": "¿Cuántos hay, de cada uno? (II)",
                 "id": "inter_count_each-2",
                 "complexity": 9
+            },
+            {
+                "title": "Buscar en la lista, todas las apariciones",
+                "id": "inter_find-all-1",
+                "complexity": 5
             }
         ]
     }
