@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>DevGym - Gimnasio para programadores</title>
-    <meta name="description" content="">
+    <meta name="description" content="Ejercicios de entrenamiento para programadores noveles">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -17,9 +17,16 @@
             padding-bottom: 20px;
         }
         #accExercieses header { display: none; }
+        #accExercieses button, #pnlValidate button { margin-bottom: 5px; }
+        #pnlValidate .excercise > header { 
+            font-size: 1.2em; 
+            padding-bottom: 10px;
+            font-weight: bold;
+        }
+        #pnlValidate > .breadcrumb { margin-top: 20px; }
     </style>
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.14.0.css">
 
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
@@ -72,21 +79,21 @@
                   class="btn btn-primary btn-lg" role="button">¡Quiero ejercitarme!</a></p>
           </div>
         </div>
-    </div>
+    </div><!-- container index -->
     
     <div class="container hide" data-bind="css: { hide: currentView() != 'statistics' }">
         <h1>Estadísticas</h1>
         Aquí estarán las estadísticas de tus soluciones de los ejercicios... <br>
         Coming soon...
-    </div>
+    </div><!-- container statistics -->
     
     <div class="container hide" data-bind="css: { hide: currentView() != 'exercises' }">
-      <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-3">
             <h2>Categorías</h2>
             <ul class="nav nav-pills nav-stacked" data-bind="foreach: exercises">
-                <li><a href="#" data-bind="text: category, click: function () { $root.setCategory(category); }"></a>
+                <li>
+                    <a href="#" data-bind="text: category, click: function () { $root.setCategory(category); }"></a>
                 </li>
             </ul>
         </div>
@@ -103,23 +110,47 @@
                         </h4>
                     </div>
                     <div class="panel-collapse collapse" data-bind="attr: { id: 'collapse_' + id }">
-                        <div class="panel-body" data-bind="html: content">                            
+                        <div class="panel-body">
+                            <div data-bind="html: content"></div>
+                            <div data-bind="visible: isTestable">
+                                <button class="btn btn-default" data-bind="click: $root.showValidate_click">Validar mi código</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>           
        </div>
       </div>
+    </div> <!-- container exercises --> 
+    
+    <div id="pnlValidate" class="container hide" data-bind="with: currentExercise, css: { hide: currentView() != 'validate' }">
+        <ol class="breadcrumb">
+            <li><a href="#exercises" data-bind="click: function () { $root.currentView('exercises'); }">Ejercicios</a></li>
+            <li>Validar: <span data-bind="text: title"></span></li>
+        </ol>
+            <div data-bind="html: content"></div>
+            <div class="form-group">
+                <label>
+                    Pon el código de tu función en el cuadro siguiente
+                    y pulsa <em>Validar</em>.
+                </label>
+                <textarea class="form-control" rows="10" data-bind="value: source"></textarea>
+            </div>
+            <button class="btn btn-success" data-bind="click: $root.validate_click">Validar</button>
+            <div id="qunit"></div>
+            <div id="qunit-fixture"></div>
+    </div>
 
-      <hr>
-
-      <footer>
-        <p>&copy; Carlos Bello 2014</p>
-      </footer>
-    </div> <!-- /container -->        
+    <div class="container bottom">
+        <hr>
+        <footer>
+          <p>&copy; Carlos Bello 2014</p>
+        </footer>
+    </div>
     
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js"></script>
+    <script src="//code.jquery.com/qunit/qunit-1.14.0.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.js"><\/script>')</script>
     <script>window.ko || document.write('<script src="js/vendor/knockout-3.1.0.js"><\/script>')</script>
 
