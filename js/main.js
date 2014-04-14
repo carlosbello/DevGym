@@ -1,7 +1,6 @@
 function Excercise() {
     this.content = ko.observable();
     this.isTestable = ko.observable(false);
-    this.showValidate = ko.observable(false);
     this.validateFunction = null;
     this.source = ko.observable();
 }
@@ -27,7 +26,9 @@ function testExtractedFunction(name, fn) {
 function DevGym() {
     'use strict';
     
-    var that = this;
+    var that = this,
+        editor;
+    
     this.currentView = ko.observable('index');
     this.currentCategory = ko.observable();
     this.exercises = ko.observableArray([]);
@@ -55,13 +56,24 @@ function DevGym() {
     this.showValidate_click = function(exercise) {
         that.currentExercise(exercise);
         that.currentView('validate');
-        //this.showValidate(!this.showValidate());
+        editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.getSession().setMode("ace/mode/javascript");
+        $('#editor').popover({
+            trigger: 'hover', 
+            html: true,
+            placement: 'auto top',
+            title: 'Editor de código fuente',   
+            content: '<div style="width: 200px">Teclea aquí el código de tu solución y pulsa <button class="btn btn-xs btn-success">Validar</button> para verificar si es correcto.</div>', 
+            delay: {show: 250, hide: 100},
+            container: '#menMain'
+        }).css('z-index', 'auto');
     };
 
     this.validate_click = function() {
         QUnit.init();
         QUnit.start();
-        var fn = extractFunction(this.source());
+        var fn = extractFunction(editor.getValue());
         testExtractedFunction(this.functionName, fn);
         if (fn && fn.name === this.functionName)
             this.validateFunction(fn);
