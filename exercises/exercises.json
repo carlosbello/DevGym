@@ -15,49 +15,49 @@
         "exercieses": [
             {
                 "title": "Todo a mayúsculas",
-                "id": "inter_all-to-uppercase-1",
+                "id": "iter_all-to-uppercase-1",
                 "complexity": 1,
                 "functionName": "uppercase"
             },
             {
                 "title": "Buscar en la lista, última aparición",
-                "id": "inter_find-last-1",
+                "id": "iter_find-last-1",
                 "complexity": 2.5,
                 "functionName": "findLast"
             },
             {
                 "title": "Buscar en la lista, primera aparición",
-                "id": "inter_find-first-1",
+                "id": "iter_find-first-1",
                 "complexity": 2,
                 "functionName": "findFirst"
             },
             {
                 "title": "¿Cuántos hay?",
-                "id": "inter_count-1",
+                "id": "iter_count-1",
                 "complexity": 2.5,
                 "functionName": "count"
             },
             {
                 "title": "¿Cuántos hay, en total?",
-                "id": "inter_count-all-1",
+                "id": "iter_count-all-1",
                 "complexity": 5,
                 "functionName": "countAll"
             },
             {
                 "title": "¿Cuántos hay, de cada uno? (I)",
-                "id": "inter_count-each-1",
+                "id": "iter_count-each-1",
                 "complexity": 7,
                 "functionName": "countEach1"
             },
             {
                 "title": "¿Cuántos hay, de cada uno? (II)",
-                "id": "inter_count-each-2",
+                "id": "iter_count-each-2",
                 "complexity": 9,
                 "functionName": "countEach2"
             },
             {
                 "title": "Buscar en la lista, todas las apariciones",
-                "id": "inter_find-all-1",
+                "id": "iter_find-all-1",
                 "complexity": 5,
                 "functionName": "findAll"
             }
