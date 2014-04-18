@@ -1,6 +1,6 @@
 (function () {
     return function (uppercase) {
-        test('findFirst()', function() {
+        test('uppercase()', function() {
             var textList = ['Este', 'es', 'un', 'ejemplo'];
             deepEqual(uppercase(['si']), ['SI'], "Lista con un elemento");
             deepEqual(uppercase(textList), ['ESTE', 'ES', 'UN', 'EJEMPLO'], 

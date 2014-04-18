@@ -1,5 +1,4 @@
 define(['jquery', 'knockout', 'ace', 'qunit'], function ($, ko, a, q) {
-    'use strict';
 
     function Excercise() {
         this.content = ko.observable();
@@ -25,8 +24,19 @@ define(['jquery', 'knockout', 'ace', 'qunit'], function ($, ko, a, q) {
         });
         return typeof fn === 'function' && fn.name === name;
     }
+    
+    function validate(functionName, functionCode, validateFunction) {
+        QUnit.init();
+        QUnit.start();
+        var fn = extractFunction(functionCode);
+        if (testExtractedFunction(functionName, fn))
+            validateFunction(fn);
+    };
+
 
     function DevGym() {
+        'use strict';
+        
         var that = this,
             editor;
 
@@ -72,12 +82,7 @@ define(['jquery', 'knockout', 'ace', 'qunit'], function ($, ko, a, q) {
         };
 
         this.validate_click = function() {
-            QUnit.init();
-            QUnit.start();
-            var fn = extractFunction(editor.getValue());
-            testExtractedFunction(this.functionName, fn);
-            if (fn && fn.name === this.functionName)
-                this.validateFunction(fn);
+            validate(this.functionName, editor.getValue(), this.validateFunction);
         };
 
         this.start = function () {
@@ -90,6 +95,7 @@ define(['jquery', 'knockout', 'ace', 'qunit'], function ($, ko, a, q) {
 
     return {
         Excercise: Excercise,
-        DevGym: DevGym
+        DevGym: DevGym,
+        extractFunction: extractFunction
     };
 });
