@@ -5,7 +5,7 @@
             var numberList = [2, 3, 5, 2, 8, 2, 9];
             deepEqual(findAll('hola', textList), [], "No está en la lista");
             deepEqual(findAll('es', textList), [1], "Uno en la lisa");
-            deepEqual(findAll(2, numberList), [3, 5], "Varios en la lista");
+            deepEqual(findAll(2, numberList), [0, 3, 5], "Varios en la lista");
         });
     };
 })();
